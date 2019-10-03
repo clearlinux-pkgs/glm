@@ -1,0 +1,20 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6e60a18..4e9a7c4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -237,13 +237,13 @@ configure_file(cmake/glmBuildConfig.cmake.in glmConfig.cmake @ONLY)
+ # install tree package config
+ configure_package_config_file(
+ 	cmake/glmConfig.cmake.in
+-	${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake
++	${CMAKE_CURRENT_BINARY_DIR}/glmConfig.cmake
+ 	INSTALL_DESTINATION ${GLM_INSTALL_CONFIGDIR}
+ 	PATH_VARS CMAKE_INSTALL_INCLUDEDIR
+ 	NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+ 
+ install(FILES
+-	"${CMAKE_CURRENT_BINARY_DIR}/${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake"
++	"${CMAKE_CURRENT_BINARY_DIR}/glmConfig.cmake"
+ 	"${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
+ 	DESTINATION ${GLM_INSTALL_CONFIGDIR})
+ 
