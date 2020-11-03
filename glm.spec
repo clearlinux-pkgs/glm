@@ -4,7 +4,7 @@
 #
 Name     : glm
 Version  : 0.9.9.2
-Release  : 4
+Release  : 5
 URL      : https://github.com/g-truc/glm/releases/download/0.9.9.2/glm-0.9.9.2.zip
 Source0  : https://github.com/g-truc/glm/releases/download/0.9.9.2/glm-0.9.9.2.zip
 Summary  : OpenGL Mathematics
@@ -29,6 +29,7 @@ dev components for the glm package.
 
 %prep
 %setup -q -n glm
+cd %{_builddir}/glm
 %patch1 -p1
 
 %build
@@ -36,16 +37,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570076781
+export SOURCE_DATE_EPOCH=1604441384
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %check
@@ -56,7 +57,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1570076781
+export SOURCE_DATE_EPOCH=1604441384
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
