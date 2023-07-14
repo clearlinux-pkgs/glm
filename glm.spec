@@ -5,7 +5,7 @@
 #
 Name     : glm
 Version  : 0.9.9.8
-Release  : 7
+Release  : 8
 URL      : https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip
 Source0  : https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip
 Summary  : No detailed summary available
